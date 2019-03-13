@@ -1,11 +1,11 @@
-package wator.view;
+package spieldeslebens.view;
 
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 
-import wator.Simulation;
+import spieldeslebens.Simulation;
 
 public class SimulationView {
 
@@ -13,8 +13,8 @@ public class SimulationView {
 	OzeanView ozeanView;
 	
 	public SimulationView() {
-		component = new JFrame("Wator Simulation");
-		component.setSize(800, 400);
+		component = new JFrame("Spiel des Lebens Simulation (aka Wator)");
+		component.setSize(1280, 800);
 		component.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		component.setLocationRelativeTo(null);
 		

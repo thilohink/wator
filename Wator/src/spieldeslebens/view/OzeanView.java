@@ -1,4 +1,4 @@
-package wator.view;
+package spieldeslebens.view;
 
 import java.awt.GridLayout;
 import java.net.URL;
@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import wator.Ozean;
-import wator.Zelle;
+import spieldeslebens.Ozean;
+import spieldeslebens.OzeanZelle;
 
 public class OzeanView {
 
@@ -22,12 +22,9 @@ public class OzeanView {
 						1,1));
 	}
 	
-	ImageIcon loadIcon(Zelle zelle) {
-		String name = zelle.gibInhalt().getTyp() + ".png";
+	ImageIcon loadIcon(OzeanZelle zelle) {
+		String name = zelle.gibInhalt().gibArtDesInhalts() + ".png";
 		URL url = this.getClass().getResource(name);
-		if (url == null) {
-			System.out.println("[WARN] OzeanView.loadIcon( " + name + " ) not found!");
-		}
 		return new ImageIcon(url);
 	}
 	
