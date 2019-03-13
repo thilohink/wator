@@ -1,5 +1,5 @@
 package spieldeslebens;
 
-public abstract class Lebewesen extends Inhalt {
+public abstract class Lebewesen extends Teilnehmer {
 
 }

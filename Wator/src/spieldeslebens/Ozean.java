@@ -2,6 +2,7 @@ package spieldeslebens;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Ozean {
 
@@ -25,6 +26,20 @@ public class Ozean {
 		}
 	}
 
+	public void besetzeZelle(Teilnehmer typ, int x, int y) {
+		OzeanZelle zelle = gibZelle(x, y);
+		zelle.inhalt = typ;
+		typ.setzeZelle(zelle);
+	}
+
+	public void besetzeZelleZufaellig(Teilnehmer typ) {
+		Random generator = new Random();
+		int zufallX = generator.nextInt(WIDTH);
+		int zufallY = generator.nextInt(HEIGHT);
+		besetzeZelle(typ, zufallX, zufallY);
+		
+	}
+	
 	/**
 	 * 	  7 0 1
 	 *    6 z 2
@@ -75,12 +90,6 @@ public class Ozean {
 		List<OzeanZelle> nachbarn = gibNachbarZellen(zelle);
 		result = nachbarn.get(richtung);
 		return result;
-	}
-	
-	public void besetzeZelle(Inhalt typ, int x, int y) {
-		OzeanZelle zelle = gibZelle(x, y);
-		zelle.inhalt = typ;
-		typ.setzeZelle(zelle);
 	}
 	
 }

@@ -1,17 +1,13 @@
 package spieldeslebens.inhalt;
 
 import spieldeslebens.Teilnehmer;
+import spieldeslebens.TeilnehmerFabrik;
 
-public class Plankton extends Teilnehmer {
+public class PlanktonFabrik implements TeilnehmerFabrik {
 
 	@Override
 	public Teilnehmer erzeugeTeilnehmner() {
 		return new Plankton();
 	}
-	
-	@Override
-	public String gibArtDesInhalts() {
-		return "plankton";
-	}
-	
+
 }

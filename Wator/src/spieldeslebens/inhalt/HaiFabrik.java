@@ -1,18 +1,13 @@
 package spieldeslebens.inhalt;
 
-import spieldeslebens.Lebewesen;
 import spieldeslebens.Teilnehmer;
+import spieldeslebens.TeilnehmerFabrik;
 
-public class Hai extends Lebewesen {
+public class HaiFabrik implements TeilnehmerFabrik {
 
 	@Override
 	public Teilnehmer erzeugeTeilnehmner() {
 		return new Hai();
 	}
-	
-	@Override
-	public String gibArtDesInhalts() {
-		return "hai";
-	}
-	
+
 }

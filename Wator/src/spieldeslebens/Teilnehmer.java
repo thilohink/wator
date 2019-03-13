@@ -1,9 +1,11 @@
 package spieldeslebens;
 
-public abstract class Inhalt {
+public abstract class Teilnehmer {
 
 	OzeanZelle zelle;
 	
+	public abstract Teilnehmer erzeugeTeilnehmner();
+
 	public abstract String gibArtDesInhalts();
 	
 	public OzeanZelle gibZelle() {

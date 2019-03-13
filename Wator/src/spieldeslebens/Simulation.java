@@ -8,7 +8,9 @@ import java.util.List;
 import javax.swing.Timer;
 import javax.swing.UIManager;
 
-import spieldeslebens.inhalt.Fisch;
+import spieldeslebens.inhalt.FischFabrik;
+import spieldeslebens.inhalt.HaiFabrik;
+import spieldeslebens.inhalt.PlanktonFabrik;
 import spieldeslebens.view.SimulationView;
 
 public class Simulation implements ActionListener {
@@ -24,26 +26,41 @@ public class Simulation implements ActionListener {
 	}
 
 	Ozean ozean;
-	List<Fisch> fische;
+	List<Teilnehmer> inhalte;
 	Timer timer;
 	SimulationView view;
 
 	public Simulation() {
 		this.ozean = Ozean.getInstance();
-		this.fische = new ArrayList<>();
-		this.fische.add(new Fisch());
+		this.inhalte = new ArrayList<>();
 		
 		this.view = new SimulationView();
 		this.timer = new Timer(100, this);
 		this.timer.setRepeats(true);
 	}
 	
+	List<Teilnehmer> erzeugeTeilnehmerImOzean(int anzahl, TeilnehmerFabrik fabrik) {
+		List<Teilnehmer> result = new ArrayList<>();
+		for(int zahl=0; zahl<anzahl; zahl++) {
+			Teilnehmer teilnehmer = fabrik.erzeugeTeilnehmner();
+			result.add(teilnehmer);
+			ozean.besetzeZelleZufaellig(teilnehmer);
+		}
+		return result;
+	}
+	
+	void initialisiereInhalte() {
+		this.inhalte.addAll(erzeugeTeilnehmerImOzean(25, new PlanktonFabrik()));
+		this.inhalte.addAll(erzeugeTeilnehmerImOzean(8,  new FischFabrik()));
+		this.inhalte.addAll(erzeugeTeilnehmerImOzean(4,  new HaiFabrik()));
+	}
+	
 	
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		view.update(this);
-		for(Fisch fisch: fische) {
-			fisch.timeStep();
+		for(Teilnehmer inhalt: inhalte) {
+			inhalt.timeStep();
 		}
 		
 	}
@@ -53,7 +70,7 @@ public class Simulation implements ActionListener {
 	}
 	
 	void start() {
-		ozean.besetzeZelle(fische.get(0), 2, 2);
+		initialisiereInhalte();
 		timer.start();
 		view.open();
 	}

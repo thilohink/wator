@@ -5,11 +5,18 @@ import java.util.Random;
 import spieldeslebens.Lebewesen;
 import spieldeslebens.Ozean;
 import spieldeslebens.OzeanZelle;
+import spieldeslebens.Teilnehmer;
 
 public class Fisch extends Lebewesen {
 
 	int richtung;
-
+	int gewicht;
+	
+	@Override
+	public Teilnehmer erzeugeTeilnehmner() {
+		return new Fisch();
+	}
+	
 	@Override
 	public String gibArtDesInhalts() {
 		return "fisch";

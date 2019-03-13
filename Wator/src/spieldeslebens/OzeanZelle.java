@@ -6,7 +6,7 @@ public class OzeanZelle {
 
 	int x;
 	int y;
-	Inhalt inhalt;
+	Teilnehmer inhalt;
 	
 	OzeanZelle(int newX, int newY) {
 		this.x = newX;
@@ -14,15 +14,15 @@ public class OzeanZelle {
 		this.inhalt = new Wasser();
 	}
 	
-	public void abmelden(Inhalt alterInhalt) {
+	public void abmelden(Teilnehmer alterInhalt) {
 		this.inhalt = new Wasser();
 	}
 	
-	public void anmelden(Inhalt neuerInhalt) {
+	public void anmelden(Teilnehmer neuerInhalt) {
 		this.inhalt = neuerInhalt;
 	}
 	
-	public Inhalt gibInhalt() {
+	public Teilnehmer gibInhalt() {
 		return inhalt;
 	}
 	
