@@ -1,5 +1,5 @@
 package wator;
 
-public class Felsen {
+public class Fels {
 
 }

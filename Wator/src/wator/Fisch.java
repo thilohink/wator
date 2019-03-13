@@ -1,5 +1,10 @@
 package wator;
 
-public class Fisch {
+public class Fisch extends ZellInhalt {
 
+	@Override
+	public String getTyp() {
+		return "fisch";
+	}
+	
 }
