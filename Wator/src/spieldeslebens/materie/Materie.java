@@ -4,20 +4,25 @@ import spieldeslebens.raumundzeit.OzeanZelle;
 
 public abstract class Materie {
 
-	OzeanZelle ozeanZelle;
+	private int gewicht;
+	private OzeanZelle ozeanZelle;
 	
 	public abstract String gibArtDerMaterie();
+	
+	public int gibGewicht() {
+		return gewicht;
+	}
 	
 	public OzeanZelle gibOzeanZelle() {
 		return ozeanZelle;
 	}
 	
-	public void setzeZelle(OzeanZelle neueZelle) {
-		this.ozeanZelle = neueZelle;
+	public void setzeGewicht(int neuesGewicht) {
+		gewicht = neuesGewicht;
 	}
 	
-	public void timeStep() {
-		// TODO
+	public void setzeZelle(OzeanZelle neueZelle) {
+		ozeanZelle = neueZelle;
 	}
 	
 }

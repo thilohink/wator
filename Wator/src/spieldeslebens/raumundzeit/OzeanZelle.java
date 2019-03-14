@@ -12,15 +12,19 @@ public class OzeanZelle {
 	OzeanZelle(int spalte, int zeile) {
 		this.spalte = spalte;
 		this.zeile = zeile;
-		this.inhalt = MaterieFabrik.erzeugeMaterie("wasser");
+	}
+
+	public void fluteMitWasser() {
+		inhalt = MaterieFabrik.erzeugeMaterie("wasser");
+		inhalt.setzeZelle(this);
 	}
 	
-	public void abmelden(Materie alterInhalt) {
-		this.inhalt = MaterieFabrik.erzeugeMaterie("wasser");
+	public void entferneInhalt() {
+		fluteMitWasser();
 	}
 	
-	public void anmelden(Materie neuerInhalt) {
-		this.inhalt = neuerInhalt;
+	public void aendereInhalt(Materie neuerInhalt) {
+		inhalt = neuerInhalt;
 	}
 	
 	public Materie gibInhalt() {

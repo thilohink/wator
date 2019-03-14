@@ -23,7 +23,7 @@ public class OzeanAnsicht {
 	}
 	
 	JLabel erzeugeOzeanZellenAnsicht(Ozean ozean, int spalte, int zeile) {
-		ImageIcon bildchen = ladeBildchen(ozean.ermittleOzeanZelleMitSpalteUndZeile(spalte, zeile));
+		ImageIcon bildchen = ladeBildchen(ozean.ermittleOzeanZelleMitKoordinaten(spalte, zeile));
 		return new JLabel(bildchen);
 	}
 	
