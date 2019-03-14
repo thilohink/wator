@@ -47,19 +47,19 @@ public class Ozean {
 	 *    6 z 2
 	 *    5 4 3
 	 *    
-	 * @param zelle
+	 * @param basisZelle
 	 * @return
 	 */
-	List<OzeanZelle> ermittleAlleNachbarZellenEinerOzeanZelle(OzeanZelle zelle) {
+	List<OzeanZelle> ermittleAlleNachbarZellenEinerOzeanZelle(OzeanZelle basisZelle) {
 		List<OzeanZelle> nachbarZellen = new ArrayList<>();
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x,   zelle.y-1));
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x+1, zelle.y-1));
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x+1, zelle.y));
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x+1, zelle.y+1));
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x,   zelle.y+1));
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x-1, zelle.y+1));
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x-1, zelle.y));
-		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(zelle.x-1, zelle.y-1));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte,   basisZelle.zeile-1));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte+1, basisZelle.zeile-1));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte+1, basisZelle.zeile));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte+1, basisZelle.zeile+1));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte,   basisZelle.zeile+1));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte-1, basisZelle.zeile+1));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte-1, basisZelle.zeile));
+		nachbarZellen.add(ermittleOzeanZelleMitSpalteUndZeile(basisZelle.spalte-1, basisZelle.zeile-1));
 		return nachbarZellen;
 	}
 	
