@@ -5,13 +5,13 @@ import spieldeslebens.materie.MaterieFabrik;
 
 public class OzeanZelle {
 
-	int x;
-	int y;
+	int spalte;
+	int zeile;
 	Materie inhalt;
 	
-	OzeanZelle(int newX, int newY) {
-		this.x = newX;
-		this.y = newY;
+	OzeanZelle(int spalte, int zeile) {
+		this.spalte = spalte;
+		this.zeile = zeile;
 		this.inhalt = MaterieFabrik.erzeugeMaterie("wasser");
 	}
 	
