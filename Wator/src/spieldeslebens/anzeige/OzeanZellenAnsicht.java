@@ -1,5 +1,6 @@
 package spieldeslebens.anzeige;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -18,6 +19,7 @@ public class OzeanZellenAnsicht extends JLabel {
 	private OzeanZelle ozeanZelle;
 	
 	public OzeanZellenAnsicht() {
+		this.setFont(new Font("Dialog", Font.PLAIN, 8));
 	}
 
 	ImageIcon ladeBildchen(OzeanZelle zelle) {
@@ -37,9 +39,18 @@ public class OzeanZellenAnsicht extends JLabel {
 	protected void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		if (ozeanZelle.gibInhalt() instanceof AktiveMaterie) {
+			String anzeigeGewicht = String.valueOf(ozeanZelle.gibInhalt().gibGewicht()); 
+			int anzeigeBreite = getFontMetrics(getFont()).stringWidth(anzeigeGewicht)+3;
+			int anzeigeHoehe = getFontMetrics(getFont()).getHeight();
+			
 			Graphics2D g2d = (Graphics2D) g;
-			g2d.setFont(new Font("Dialog", Font.PLAIN, 8));
-			g2d.drawString(String.valueOf(ozeanZelle.gibInhalt().gibGewicht()), 2, 32);
+			g2d.setColor(Color.WHITE);
+			g2d.fillRect(0, 32-anzeigeHoehe, anzeigeBreite, anzeigeHoehe);
+			g2d.setColor(Color.BLACK);
+			g2d.drawRect(0, 32-anzeigeHoehe, anzeigeBreite, anzeigeHoehe);
+			
+			g2d.setFont(getFont());
+			g2d.drawString(anzeigeGewicht, 2, 30);
 		}
 	}
 	
