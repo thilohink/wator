@@ -16,19 +16,19 @@ public class OzeanZelle {
 
 	public void fluteMitWasser() {
 		inhalt = MaterieFabrik.erzeugeMaterie("wasser");
-		inhalt.setzeZelle(this);
+		inhalt.setzeOzeanZelle(this);
 	}
 	
 	public void entferneInhalt() {
 		fluteMitWasser();
 	}
 	
-	public void aendereInhalt(Materie neuerInhalt) {
-		inhalt = neuerInhalt;
-	}
-	
 	public Materie gibInhalt() {
 		return inhalt;
+	}
+
+	public void setzeInhalt(Materie neuerInhalt) {
+		inhalt = neuerInhalt;
 	}
 	
 }

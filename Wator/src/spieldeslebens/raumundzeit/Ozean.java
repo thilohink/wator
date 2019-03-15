@@ -43,9 +43,16 @@ public class Ozean {
 		int spalteZufaellig = generator.nextInt(BREITE_DES_OZEAN_ZELL_RASTERS);
 		int zeileZufaellig = generator.nextInt(HOHE_DES_OZEAN_ZELL_RASTERS);
 
+		OzeanZelle zufaelligeZelle = ermittleOzeanZelleMitKoordinaten(spalteZufaellig, zeileZufaellig); 
+		while (zufaelligeZelle.gibInhalt().gibArtDerMaterie().equals("wasser") == false
+			&& zufaelligeZelle.gibInhalt().gibArtDerMaterie().equals("plankton") == false) {
+			spalteZufaellig = generator.nextInt(BREITE_DES_OZEAN_ZELL_RASTERS);
+			zeileZufaellig = generator.nextInt(HOHE_DES_OZEAN_ZELL_RASTERS);
+			zufaelligeZelle = ermittleOzeanZelleMitKoordinaten(spalteZufaellig, zeileZufaellig);
+		}
+		
 		OzeanZelle zelle = ermittleOzeanZelleMitKoordinaten(spalteZufaellig, zeileZufaellig);
-		zelle.inhalt = materie;
-		materie.setzeZelle(zelle);
+		materie.setzeOzeanZelle(zelle);
 	}
 
 	/**

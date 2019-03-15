@@ -27,8 +27,8 @@ public class SimulationAnsicht {
 		komponente.setVisible(true);
 	}
 	
-	public void aktualisieren(Simulation simulation) {
-		ozeanAnsicht.aktualisieren(simulation.gibOzean());
+	public void aktualisiere(Simulation simulation) {
+		ozeanAnsicht.aktualisiere(simulation.gibOzean());
 	}
 	
 }

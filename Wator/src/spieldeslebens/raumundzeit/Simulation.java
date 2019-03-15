@@ -54,13 +54,12 @@ public class Simulation {
 	void erzeugeOzean() {
 		ozean.fluteMitWasser();
 
-		erzeugeMaterieZufaelligImOzeanMitAnzahlUndArt(10, "fels");
+		erzeugeMaterieZufaelligImOzeanMitAnzahlUndArt(40, "fels");
 		erzeugeMaterieZufaelligImOzeanMitAnzahlUndArt(25, "plankton");
 		
 		aktiveMaterie.addAll(erzeugeAktiveMaterieZufaelligImOzeanMitAnzahlUndArt(8,  "fisch"));
 		aktiveMaterie.addAll(erzeugeAktiveMaterieZufaelligImOzeanMitAnzahlUndArt(4,  "hai"));
 
-//		aktiveMaterie.addAll(erzeugeAktiveMaterieZufaelligImOzeanMitAnzahlUndArt(1,  "hai"));
 	}
 	
 	public Ozean gibOzean() {
@@ -68,7 +67,7 @@ public class Simulation {
 	}
 	
 	void schreiteInDerZeitVoran() {
-//		erzeugeMaterieZufaelligImOzeanMitAnzahlUndArt(5, "plankton");
+		erzeugeMaterieZufaelligImOzeanMitAnzahlUndArt(5, "plankton");
 
 		for(AktiveMaterie lebewesen: new ArrayList<>(aktiveMaterie)) {
 			lebewesen.schreiteInDerZeitVoran();
@@ -77,12 +76,12 @@ public class Simulation {
 			}
 		}
 		
-		anzeige.aktualisieren(this);
+		anzeige.aktualisiere(this);
 	}
 	
 	void start() {
 		erzeugeOzean();
-		anzeige.aktualisieren(this);
+		anzeige.aktualisiere(this);
 		anzeige.anzeigen();
 		zeitAblauf.starteZeitAblauf();
 	}

@@ -33,9 +33,7 @@ public abstract class AktiveMaterie extends Materie {
 			OzeanZelle zielZelle = bestimmeBewegungsZiel();
 			if (entscheideBewegungInsZiel(zielZelle)) {
 				fresse(zielZelle.gibInhalt());
-				gibOzeanZelle().entferneInhalt();
-				zielZelle.aendereInhalt(this);
-				setzeZelle(zielZelle);
+				bewegeDichZurOzeanZelle(zielZelle);
 			}
 			pflanzeDichFort();
 		}
@@ -55,8 +53,7 @@ public abstract class AktiveMaterie extends Materie {
 	}
 	
 	public boolean istGestorben() {
-		if (gibGewicht() == 0
-		 || gibOzeanZelle().gibInhalt().gibArtDerMaterie().equals("wasser")) {
+		if (gibGewicht() == 0) {
 			return true;
 		} else {
 			return false;
@@ -72,8 +69,16 @@ public abstract class AktiveMaterie extends Materie {
 		int neuesGewicht = altesGewicht + futter.gibGewicht();
 		setzeGewicht(neuesGewicht);
 		futter.gibOzeanZelle().entferneInhalt();
+		if (futter.gibArtDerMaterie().equals("fisch")) {
+			((AktiveMaterie) futter).sterbe();
+		}
 	}
-	
+
+	protected void bewegeDichZurOzeanZelle(OzeanZelle neueZelle) {
+		OzeanZelle alteZelle = gibOzeanZelle();
+		setzeOzeanZelle(neueZelle);
+		alteZelle.entferneInhalt();
+	}
 
 	public void sterbe() {
 		gibOzeanZelle().entferneInhalt();

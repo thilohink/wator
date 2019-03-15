@@ -48,8 +48,9 @@ public class Hai extends AktiveMaterie {
 
 	@Override
 	public void fresse(Materie futter) {
-		// TODO Auto-generated method stub
-		super.fresse(futter);
+		if (futter.gibArtDerMaterie().equals("fisch")) {
+			super.fresse(futter);
+		}
 	}
 	
 }

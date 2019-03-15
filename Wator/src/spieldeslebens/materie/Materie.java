@@ -21,8 +21,9 @@ public abstract class Materie {
 		gewicht = neuesGewicht;
 	}
 	
-	public void setzeZelle(OzeanZelle neueZelle) {
+	public void setzeOzeanZelle(OzeanZelle neueZelle) {
 		ozeanZelle = neueZelle;
+		ozeanZelle.setzeInhalt(this);
 	}
 	
 }
